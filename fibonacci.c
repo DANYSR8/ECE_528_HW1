@@ -28,7 +28,7 @@ int main()
         printf("%d ",previous_num);
         printf("%d ",current_num);
 
-        for (int i = 3 ; i <= num_terms_to_compute ; i++)
+        for (int i = 2 ; i <= num_terms_to_compute ; i++)
         {
         
             next_num = previous_num + current_num;
