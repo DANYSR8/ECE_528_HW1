@@ -1,3 +1,4 @@
+
 # ECE_528_HW1
 
 ## Section 1 - Review Questions ## 
@@ -246,17 +247,18 @@ P7->OUT &= ~0xFF;   // 1111 1111b --> 0xFF --- after operation bits 0 through 7 
 To verify the `sign_and_magnitude.c` program, 8 test cases were used to check the program's functionality.
  
 **Test Cases 1 and 2** test the nominal condition of feeding in typical integer values such as 10 and -15.
-![Test Cases 1 and 2](./images/Sign_and_Mag_Images/TestCase_1_and_2.png)
- 
+<img width="2605" height="609" alt="TestCase_1_and_2" src="https://github.com/user-attachments/assets/b2aed50c-d210-4395-a1ad-5b6a53f563af" />
+<img width="2218" height="1710" alt="Test_Cases_Bit_Counter" src="https://github.com/user-attachments/assets/36906093-7df7-4792-bb6b-675aff299aea" />
+
 **Test Cases 3 and 4** test the special cases of entering a value of 0 and a relatively large number.
-![Test Cases 3 and 4](./images/Sign_and_Mag_Images/TestCase_3_and_4.png)
- 
+ <img width="2565" height="582" alt="TestCase_3_and_4" src="https://github.com/user-attachments/assets/80c29b83-e6bd-4532-bdd0-4fde7950cb02" />
+
 **Test Cases 5 and 6** show what happens when negative and positive decimal values are entered. In doing so we can see that the program truncates toward zero, which in this case results in 0.
-![Test Cases 5 and 6](./images/Sign_and_Mag_Images/TestCase_5_and_6.png)
- 
+ <img width="2562" height="621" alt="TestCase_5_and_6" src="https://github.com/user-attachments/assets/f3aba862-4da4-447b-908b-83c2bbf7eb37" />
+
 **Test Cases 7 and 8** further verify test cases 5 and 6 by inputting the values 2.13 and 2.82 to show that they truncate toward zero.
-![Test Cases 7 and 8](./images/Sign_and_Mag_Images/TestCase_7_and_8.png)
- 
+ <img width="2603" height="614" alt="TestCase_7_and_8" src="https://github.com/user-attachments/assets/05e12431-5ca7-42b6-908a-74567094748f" />
+
  
 ### Bit Counter ###
  
@@ -324,9 +326,8 @@ Expected bits set: 2
 ```
  
 **All Test Cases Displayed In Order:**
- 
-![Test Cases Bit Counter](./images/Bit_Counter_Images/Test_Cases_Bit_Counter.png)
- 
+ <img width="2218" height="1710" alt="Test_Cases_Bit_Counter" src="https://github.com/user-attachments/assets/77722483-cce7-471f-bc50-4c29883002c7" />
+
  
 **Learning Outcomes:** The initial attempt used an `int` to hold the user's input, which seemed fine until testing revealed that large input values caused issues. An `int` is signed, so half of its values are negative, and it can only go up to 2,147,483,647 — about half of what an unsigned 32-bit number needs. Switching to a `long long` fixed it, since it holds at least 64 bits and has enough room for the whole unsigned 32-bit range. The other thing learned is that `scanf` doesn't reject a negative number on its own — it reads the minus sign as part of the number and converts it, so checking the return value isn't enough to catch it.
  
@@ -355,8 +356,7 @@ Expected to not function after the 46th term due to signed overflow
 ```
  
 **All Test Cases Displayed In Order:**
- 
-![Test Cases Fibonacci](./images/Fibonacci%20Images/Test_Cases_Fibonacci.png)
- 
+<img width="1364" height="611" alt="Test_Cases_Fibonacci" src="https://github.com/user-attachments/assets/5618da57-841f-46ba-b9de-f0d4bd173b91" />
+
  
 **Learning Outcomes:** Since we use an `int` as the variable type, the highest value we can store is `2^32`, which is 4,294,967,296, but that is halved to 2,147,483,647 since `int` can represent both negative and positive numbers. So in doing so we get an overflow, so the program still executes but does not correctly compute the expected values and has undefined behavior.
